@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "bg_jpg",
+			"keys": "bg_jpg,intro_bg_jpg,main_bg_png",
 			"name": "preload"
 		}
 	],
@@ -10,6 +10,16 @@
 			"url": "assets/bg.jpg",
 			"type": "image",
 			"name": "bg_jpg"
+		},
+		{
+			"name": "intro_bg_jpg",
+			"type": "image",
+			"url": "assets/intro_bg.jpg"
+		},
+		{
+			"name": "main_bg_png",
+			"type": "image",
+			"url": "assets/main_bg.png"
 		}
 	]
 }
