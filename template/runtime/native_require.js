@@ -9,12 +9,12 @@ var game_file_list = [
 	"libs/modules/res/res.js",
 	"libs/modules/tween/tween.js",
 	"libs/modules/p2/p2.js",
-	"bin-debug/CircleShape.js",
+	"bin-debug/p2DebugDraw.js",
 	"bin-debug/UserBubble.js",
 	"bin-debug/SceneTheOnlyOne.js",
 	"bin-debug/Main.js",
 	"bin-debug/LoadingUI.js",
-	"bin-debug/p2DebugDraw.js",
+	"bin-debug/CircleShape.js",
 	//----auto game_file_list end----
 ];
 

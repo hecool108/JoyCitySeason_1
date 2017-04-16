@@ -2,8 +2,9 @@
  * SceneTheOnlyOne extends egret.Sprite
  */
 class SceneTheOnlyOne extends egret.Sprite {
-    private static RADIUS_LARGE: number = 120;
-    private static RADIUS_SMALL: number = 20;
+    public static RADIUS_LARGE: number = 120;
+    public static RADIUS_SMALL: number = 20;
+    public static BALL_SPEED: number = 120;
 
 
     constructor() {
@@ -14,11 +15,14 @@ class SceneTheOnlyOne extends egret.Sprite {
     private onAddToStage(): void {
         this.createP2();
         this.createDebugView();
-        this.addEventListener(egret.Event.ENTER_FRAME, this.loop, this);
+        
         let weakSelf = this;
         setInterval(()=>{
             weakSelf.addUserIcon();
-        },1000);
+        },300);
+
+        this.addEventListener(egret.Event.ENTER_FRAME, this.loop, this);
+        this.startP2();
     }
 
     private createDebugView(): void {
@@ -28,11 +32,15 @@ class SceneTheOnlyOne extends egret.Sprite {
         this.debugDraw.setSprite(sprite);
     }
 
-    private p2World: p2.World;
-    private bodies: p2.Body[];
+    public p2World: p2.World;
+    public bodies: p2.Body[];
     private joyCityLogoBall: UserBubble;
     private timeStep: number;
     private debugDraw: p2DebugDraw;
+    private isP2Working:boolean;
+
+
+
     private createP2(): void {
         this.bodies = [];
         this.p2World = new p2.World({
@@ -43,11 +51,13 @@ class SceneTheOnlyOne extends egret.Sprite {
         this.joyCityLogoBall = new UserBubble({
             type: p2.Body.KINEMATIC,
             mass: 1,
-            position: [this.stage.stageWidth / 2, this.stage.stageHeight / 2]
+            position: [this.stage.stageWidth / 2, 
+                        this.stage.stageHeight / 2]
         });
 
         let theShape: p2.Circle = new p2.Circle({
-            radius: SceneTheOnlyOne.RADIUS_LARGE
+            radius: SceneTheOnlyOne.RADIUS_LARGE,
+            material: new p2.Material(1000)
         });
 
         let theDisplay: CircleShape = new CircleShape(
@@ -62,6 +72,16 @@ class SceneTheOnlyOne extends egret.Sprite {
         this.joyCityLogoBall.addShape(theShape);
         this.p2World.addBody(this.joyCityLogoBall);
     }
+    private startP2():void{
+       this.isP2Working = true;
+    }
+
+    private stopP2():void{
+       this.isP2Working = false;
+    }
+
+
+
     private rp:egret.Point;
     private randomOutOfStage():egret.Point{
         if(this.rp == null){
@@ -82,46 +102,35 @@ class SceneTheOnlyOne extends egret.Sprite {
             type: p2.Body.DYNAMIC,
             mass: 1,
             position: [pTo.x,pTo.y]
+        },{
+            target:this.joyCityLogoBall,
+            root:this
         });
-
-        let theShape: p2.Circle = new p2.Circle({
-            radius: SceneTheOnlyOne.RADIUS_SMALL
-        });
-
-        let theDisplay: CircleShape = new CircleShape(
-            {
-                color: 0xffffff,
-                radius: SceneTheOnlyOne.RADIUS_SMALL
-            });
-        theDisplay.x = icon.position[0];
-        theDisplay.y = this.stage.stageHeight - icon.position[1];
-        this.addChild(theDisplay);
-        icon.displays = [theDisplay];
-        icon.addShape(theShape);
         this.p2World.addBody(icon);
         this.bodies.push(icon);
     }
     private loop(e): void {
-        this.p2World.step(this.timeStep);
-        this.p2World.step(this.timeStep * 20);
-        let weakSelf = this;
-        let ballDisplay = this.joyCityLogoBall.displays[0];
-        ballDisplay.x = this.joyCityLogoBall.position[0];
-        ballDisplay.y = this.stage.stageHeight - this.joyCityLogoBall.position[1];
-        ballDisplay.rotation = this.joyCityLogoBall.angle * 180 / Math.PI;
+        if(this.isP2Working){
+            this.p2World.step(this.timeStep);
+            let weakSelf = this;
+            let ballDisplay = this.joyCityLogoBall.displays[0];
+            ballDisplay.x = this.joyCityLogoBall.position[0];
+            ballDisplay.y = this.stage.stageHeight - this.joyCityLogoBall.position[1];
+            ballDisplay.rotation = this.joyCityLogoBall.angle * 180 / Math.PI;
 
-        this.bodies.forEach((b: p2.Body) => {
-            let ballDisplay = b.displays[0];
-            ballDisplay.x = b.position[0];
-            ballDisplay.y = this.stage.stageHeight - b.position[1];
-            ballDisplay.rotation = b.angle * 180 / Math.PI;
-            weakSelf.accelerateToObject(b, weakSelf.joyCityLogoBall, 30);
-            
-        });
+            this.bodies.forEach((b: p2.Body) => {
+                let ballDisplay = b.displays[0];
+                ballDisplay.x = b.position[0];
+                ballDisplay.y = this.stage.stageHeight - b.position[1];
+                ballDisplay.rotation = b.angle * 180 / Math.PI;
+                weakSelf.accelerateToObject(b, weakSelf.joyCityLogoBall, SceneTheOnlyOne.BALL_SPEED);
+                
+            });
+        }        
     }
 
     private accelerateToObject(obj1: p2.Body, obj2: p2.Body, speed: number) {
-        if (typeof speed === 'undefined') { speed = 60; }
+        if (typeof speed === 'undefined') { speed = SceneTheOnlyOne.BALL_SPEED; }
         var angle = Math.atan2(obj2.position[1] - obj1.position[1],
             obj2.position[0] - obj1.position[0]);
         obj1.angle = angle + this.d2r(90);

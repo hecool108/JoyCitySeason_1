@@ -19,11 +19,12 @@ var SceneTheOnlyOne = (function (_super) {
     SceneTheOnlyOne.prototype.onAddToStage = function () {
         this.createP2();
         this.createDebugView();
-        this.addEventListener(egret.Event.ENTER_FRAME, this.loop, this);
         var weakSelf = this;
         setInterval(function () {
             weakSelf.addUserIcon();
-        }, 1000);
+        }, 300);
+        this.addEventListener(egret.Event.ENTER_FRAME, this.loop, this);
+        this.startP2();
     };
     SceneTheOnlyOne.prototype.createDebugView = function () {
         this.debugDraw = new p2DebugDraw(this.p2World);
@@ -40,10 +41,12 @@ var SceneTheOnlyOne = (function (_super) {
         this.joyCityLogoBall = new UserBubble({
             type: p2.Body.KINEMATIC,
             mass: 1,
-            position: [this.stage.stageWidth / 2, this.stage.stageHeight / 2]
+            position: [this.stage.stageWidth / 2,
+                this.stage.stageHeight / 2]
         });
         var theShape = new p2.Circle({
-            radius: SceneTheOnlyOne.RADIUS_LARGE
+            radius: SceneTheOnlyOne.RADIUS_LARGE,
+            material: new p2.Material(1000)
         });
         var theDisplay = new CircleShape({
             color: 0xffffff,
@@ -55,6 +58,12 @@ var SceneTheOnlyOne = (function (_super) {
         this.joyCityLogoBall.displays = [theDisplay];
         this.joyCityLogoBall.addShape(theShape);
         this.p2World.addBody(this.joyCityLogoBall);
+    };
+    SceneTheOnlyOne.prototype.startP2 = function () {
+        this.isP2Working = true;
+    };
+    SceneTheOnlyOne.prototype.stopP2 = function () {
+        this.isP2Working = false;
     };
     SceneTheOnlyOne.prototype.randomOutOfStage = function () {
         if (this.rp == null) {
@@ -73,42 +82,34 @@ var SceneTheOnlyOne = (function (_super) {
             type: p2.Body.DYNAMIC,
             mass: 1,
             position: [pTo.x, pTo.y]
+        }, {
+            target: this.joyCityLogoBall,
+            root: this
         });
-        var theShape = new p2.Circle({
-            radius: SceneTheOnlyOne.RADIUS_SMALL
-        });
-        var theDisplay = new CircleShape({
-            color: 0xffffff,
-            radius: SceneTheOnlyOne.RADIUS_SMALL
-        });
-        theDisplay.x = icon.position[0];
-        theDisplay.y = this.stage.stageHeight - icon.position[1];
-        this.addChild(theDisplay);
-        icon.displays = [theDisplay];
-        icon.addShape(theShape);
         this.p2World.addBody(icon);
         this.bodies.push(icon);
     };
     SceneTheOnlyOne.prototype.loop = function (e) {
         var _this = this;
-        this.p2World.step(this.timeStep);
-        this.p2World.step(this.timeStep * 20);
-        var weakSelf = this;
-        var ballDisplay = this.joyCityLogoBall.displays[0];
-        ballDisplay.x = this.joyCityLogoBall.position[0];
-        ballDisplay.y = this.stage.stageHeight - this.joyCityLogoBall.position[1];
-        ballDisplay.rotation = this.joyCityLogoBall.angle * 180 / Math.PI;
-        this.bodies.forEach(function (b) {
-            var ballDisplay = b.displays[0];
-            ballDisplay.x = b.position[0];
-            ballDisplay.y = _this.stage.stageHeight - b.position[1];
-            ballDisplay.rotation = b.angle * 180 / Math.PI;
-            weakSelf.accelerateToObject(b, weakSelf.joyCityLogoBall, 30);
-        });
+        if (this.isP2Working) {
+            this.p2World.step(this.timeStep);
+            var weakSelf_1 = this;
+            var ballDisplay = this.joyCityLogoBall.displays[0];
+            ballDisplay.x = this.joyCityLogoBall.position[0];
+            ballDisplay.y = this.stage.stageHeight - this.joyCityLogoBall.position[1];
+            ballDisplay.rotation = this.joyCityLogoBall.angle * 180 / Math.PI;
+            this.bodies.forEach(function (b) {
+                var ballDisplay = b.displays[0];
+                ballDisplay.x = b.position[0];
+                ballDisplay.y = _this.stage.stageHeight - b.position[1];
+                ballDisplay.rotation = b.angle * 180 / Math.PI;
+                weakSelf_1.accelerateToObject(b, weakSelf_1.joyCityLogoBall, SceneTheOnlyOne.BALL_SPEED);
+            });
+        }
     };
     SceneTheOnlyOne.prototype.accelerateToObject = function (obj1, obj2, speed) {
         if (typeof speed === 'undefined') {
-            speed = 60;
+            speed = SceneTheOnlyOne.BALL_SPEED;
         }
         var angle = Math.atan2(obj2.position[1] - obj1.position[1], obj2.position[0] - obj1.position[0]);
         obj1.angle = angle + this.d2r(90);
@@ -122,5 +123,6 @@ var SceneTheOnlyOne = (function (_super) {
 }(egret.Sprite));
 SceneTheOnlyOne.RADIUS_LARGE = 120;
 SceneTheOnlyOne.RADIUS_SMALL = 20;
+SceneTheOnlyOne.BALL_SPEED = 120;
 __reflect(SceneTheOnlyOne.prototype, "SceneTheOnlyOne");
 //# sourceMappingURL=SceneTheOnlyOne.js.map
