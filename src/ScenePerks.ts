@@ -115,7 +115,7 @@ class ScenePerks extends egret.Sprite{
             this.perkBox.scaleX = this.perkBox.scaleY = 0.5;
             this.perkBox.x = this.perkBox.anchorOffsetX = this.stage.stageWidth / 2;
             this.perkBox.anchorOffsetY = this.stage.stageHeight / 2;
-            this.perkBox.y =  this.perkBox.anchorOffsetY * 1.1;
+            this.perkBox.y =  this.perkBox.anchorOffsetY * 0.95;
             this.perkBitmap = new egret.Bitmap(RES.getRes("perk_"+to+"_jpg"));
             this.perkBox.addChildAt(this.perkBitmap,this.getChildIndex(this.ring));
 
@@ -131,7 +131,8 @@ class ScenePerks extends egret.Sprite{
         this.perkRetunBitmap.x = (this.stage.stageWidth - this.perkRetunBitmap.width)/2;
         this.perkRetunBitmap.y = this.perkBitmap.y + this.perkBitmap.height + 20;
         let weakSelf = this;
-        egret.Tween.get(this.perkBox).to({alpha:1,scaleX:0.9,scaleY:0.9},500,egret.Ease.quartInOut);
+        egret.Tween.get(this.perkBox).to({alpha:1,scaleX:1,scaleY:1},500,egret.Ease.quartInOut);
+        egret.Tween.get(this.cornerLogo).to({alpha:0,scaleX:0.2,scaleY:0.2},500,egret.Ease.quartInOut);
         egret.Tween.get(this.ring).to({alpha:0,scaleX:1.5,scaleY:1.5,
             x:this.stage.stageWidth + this.stage.stageHeight/3 + 3 },500,egret.Ease.quartInOut).call(()=>{
                 weakSelf.ring.visible = false;
@@ -141,6 +142,7 @@ class ScenePerks extends egret.Sprite{
         if(!this.showingPerk) return;
         this.showingPerk = false;
         this.ring.visible = true;
+        egret.Tween.get(this.cornerLogo).to({alpha:1,scaleX:0.5,scaleY:0.5},500,egret.Ease.quartInOut);
         egret.Tween.get(this.perkBox).to({alpha:0,scaleX:0.5,scaleY:0.5},500,egret.Ease.quartInOut);
         egret.Tween.get(this.ring).to({alpha:1,scaleX:1,scaleY:1,x:this.stage.stageWidth },500,egret.Ease.quartInOut);
     }

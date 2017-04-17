@@ -4,11 +4,8 @@
 class SceneIntroAnimation extends egret.Sprite {
     public static RADIUS_LARGE: number = 200;
     public static RADIUS_SMALL: number = 64;
-    public static BALL_SPEED: number = 200;
+    public static BALL_SPEED: number = 600;
     public static THEME_COLOR_PINK: number = 0xff0091;
-
-
-
 
     constructor() {
         super();
@@ -28,11 +25,11 @@ class SceneIntroAnimation extends egret.Sprite {
         let sTo: number = SceneIntroAnimation.RADIUS_LARGE / this.stage.stageHeight;
         setTimeout(function () {
             egret.Tween.get(weakSelf.startMask).to({ scaleX: sTo, scaleY: sTo }
-                , 1000, egret.Ease.quartInOut).call(() => {
+                , 800, egret.Ease.quartInOut).call(() => {
                     weakSelf.createP2();
                     weakSelf.createDebugView();
                 });
-        }, 800);
+        }, 500);
     }
     private onAddToStage(): void {
         this.createIntroMask();
@@ -114,8 +111,10 @@ class SceneIntroAnimation extends egret.Sprite {
         setTimeout(function() {
             weakSelf.stopP2();
             weakSelf.parent.removeChild(weakSelf);
-            weakSelf.dispatchEventWith(LogoBall.DONE);
         }, 1200);
+        setTimeout(function() {
+            weakSelf.dispatchEventWith(LogoBall.DONE);
+        }, 300);
     }
 
 

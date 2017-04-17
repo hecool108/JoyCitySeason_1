@@ -37,8 +37,8 @@ class UserIcon extends egret.Sprite implements IJCTransform {
         // this.userIcon.mask = this.theMask;
         let weakSelf = this;
         setTimeout(function() {
-            weakSelf.scaleTo(0.5,1000);
-        }, 3000);
+            weakSelf.scaleTo(0.5,800);
+        }, 2000);
 
         
 
