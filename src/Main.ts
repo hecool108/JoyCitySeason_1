@@ -85,8 +85,53 @@ class Main extends egret.DisplayObjectContainer {
      * 创建游戏场景
      * Create a game scene
      */
+    private 
+    private introAminationScene:SceneIntroAnimation;
+    private perksScene:ScenePerks;
+    private invationScene:SceneInvite;
+    private bgPattern: CurtainBitmap;
     private createGameScene():void {
-        this.addChild(new SceneTheOnlyOne());
+        let bg = new egret.Shape();
+        bg.graphics.beginFill(0x15193d,1);
+        bg.graphics.drawRect(0,0,this.stage.stageWidth,this.stage.stageHeight);
+        bg.graphics.endFill();
+        this.addChild(bg);
+
+        this.bgPattern = new CurtainBitmap({
+            resourceName: "main_bg_png",
+            fadeIn: false,
+            centerLayout: true
+        });
+        this.bgPattern.visible = false;
+        let weakSelf = this;
+        setTimeout(function() {
+            weakSelf.bgPattern.visible = true;
+        }, 500);
+        this.addChild(this.bgPattern);
+
+
+        this.introAminationScene = new SceneIntroAnimation();
+        this.introAminationScene.addEventListener(LogoBall.DONE,this.onLogoBallDone,this);
+        this.addChild(this.introAminationScene);
+
+        // this.onInvatationDone(null);
+    }
+    private onLogoBallDone(e):void{
+        this.invationScene = new SceneInvite();
+        this.invationScene.addEventListener(SceneInvite.DONE,this.onInvatationDone,this);
+        this.addChild(this.invationScene);
+    }
+    private onInvatationDone(e):void{
+        this.perksScene = new ScenePerks();
+        this.addChild(this.perksScene);
+    }
+
+
+    get width(): number {
+        return this.stage.stageWidth;
+    }
+    get height(): number {
+        return this.stage.stageHeight;
     }
 }
 
