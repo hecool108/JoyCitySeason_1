@@ -7,6 +7,7 @@ class UserIcon extends egret.Sprite implements IJCTransform {
     private userIcon:egret.Bitmap;
     private shape:p2.Circle;
     public static RING_WIDTH:number = 8;
+    
 
     constructor(parameters) {
         super();
@@ -17,7 +18,7 @@ class UserIcon extends egret.Sprite implements IJCTransform {
                 radius: SceneIntroAnimation.RADIUS_SMALL
             });
         this.addChild(this.bg);
-
+        
 
         
 

@@ -109,7 +109,6 @@ class Main extends egret.DisplayObjectContainer {
         }, 500);
         this.addChild(this.bgPattern);
 
-
         this.introAminationScene = new SceneIntroAnimation();
         this.introAminationScene.addEventListener(LogoBall.DONE,this.onLogoBallDone,this);
         this.addChild(this.introAminationScene);
