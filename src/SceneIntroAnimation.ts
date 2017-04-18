@@ -4,7 +4,7 @@
 class SceneIntroAnimation extends egret.Sprite {
     public static RADIUS_LARGE: number = 200;
     public static RADIUS_SMALL: number = 64;
-    public static BALL_SPEED: number = 1000;
+    public static BALL_SPEED: number = 1200;
     public static THEME_COLOR_PINK: number = 0xff0091;
     public static USER_COUNT:number = 90;
 

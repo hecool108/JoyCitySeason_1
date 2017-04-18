@@ -18,12 +18,12 @@ class ImageBubbleBody extends p2.Body{
             let cm: p2.ContactMaterial = new p2.ContactMaterial(
                 theShape.material,
                 this.target.shapes[0].material);
-            cm.restitution = 0;
+            cm.restitution = 1.2;
             cm.friction = 10;
             cm.frictionRelaxation = 10;
             cm.frictionStuffness = 10;
             cm.surfaceVelocity = 0.3;
-            cm.stiffness = Number.MAX_VALUE;
+            cm.stiffness = 3000;//Number.MAX_VALUE;
             this.root.p2World.addContactMaterial(cm);
             let theDisplay: UserIcon = new UserIcon(
                 {
