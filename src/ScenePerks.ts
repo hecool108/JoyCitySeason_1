@@ -54,9 +54,15 @@ class ScenePerks extends egret.Sprite{
             this.ring.addChild(planet);
             this.planets.push(planet);
         }
+
         egret.Tween.get(this.ring).to({rotation:0,x:this.stage.stageWidth},
                     1000,egret.Ease.backInOut);
-        egret.Tween.get(this.cornerLogo).to({scaleX:1,scaleY:1,alpha:1},300,egret.Ease.backOut);
+        let weakSelf = this;
+        egret.Tween.get(this.cornerLogo).to({scaleX:1,scaleY:1,alpha:1},300,egret.Ease.backOut).call(()=>{
+            weakSelf.planets.forEach((element,index) => {
+                element.startHover(index*300);
+            });
+        });
 
         this.touchEnabled = true;
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onRingTouchBegin,this);
@@ -68,6 +74,9 @@ class ScenePerks extends egret.Sprite{
         this.touchStartY = e.stageY;
         this.touchStartRotation = this.ring.rotation;
         this.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.onRingTouchMove,this);
+        this.planets.forEach((element,index) => {
+                element.stopHover();
+        });
     }
     private onRingTouchMove(e:egret.TouchEvent):void{
         let diff = (e.stageY - this.touchStartY);        
@@ -90,6 +99,9 @@ class ScenePerks extends egret.Sprite{
                     500,egret.Ease.backOut);
         this.planets.forEach(element => {
             element.backToLevel();
+        });
+        this.planets.forEach((element,index) => {
+                element.startHover(index*300);
         });
     }
 
@@ -137,6 +149,9 @@ class ScenePerks extends egret.Sprite{
             x:this.stage.stageWidth + this.stage.stageHeight/3 + 3 },500,egret.Ease.quartInOut).call(()=>{
                 weakSelf.ring.visible = false;
             });
+         weakSelf.planets.forEach((element,index) => {
+                element.stopHover();
+        });
     }
     private hidePerkBox(e):void{
         if(!this.showingPerk) return;
@@ -145,5 +160,8 @@ class ScenePerks extends egret.Sprite{
         egret.Tween.get(this.cornerLogo).to({alpha:1,scaleX:1,scaleY:1},500,egret.Ease.quartInOut);
         egret.Tween.get(this.perkBox).to({alpha:0,scaleX:0.5,scaleY:0.5},500,egret.Ease.quartInOut);
         egret.Tween.get(this.ring).to({alpha:1,scaleX:1,scaleY:1,x:this.stage.stageWidth },500,egret.Ease.quartInOut);
+        this.planets.forEach((element,index) => {
+                element.startHover(index*300);
+        });
     }
 }

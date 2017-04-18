@@ -43,16 +43,17 @@
 	<script egret="game" src="bin-debug/UserIcon.js"></script>
 	<script egret="game" src="bin-debug/LogoBall.js"></script>
 	<script egret="game" src="bin-debug/PlanetButton.js"></script>
+	<script egret="game" src="bin-debug/SceneIntroAnimation.js"></script>
 	<script egret="game" src="bin-debug/CircleShape.js"></script>
-	<script egret="game" src="bin-debug/SceneInvite.js"></script>
 	<script egret="game" src="bin-debug/ScenePerks.js"></script>
+	<script egret="game" src="bin-debug/SoundPlayer.js"></script>
 	<script egret="game" src="bin-debug/Main.js"></script>
 	<script egret="game" src="bin-debug/p2DebugDraw.js"></script>
 	<script egret="game" src="bin-debug/LoadingUI.js"></script>
 	<script egret="game" src="bin-debug/ImageBubbleBody.js"></script>
 	<script egret="game" src="bin-debug/IJCTransform.js"></script>
 	<script egret="game" src="bin-debug/CurtainBitmap.js"></script>
-	<script egret="game" src="bin-debug/SceneIntroAnimation.js"></script>
+	<script egret="game" src="bin-debug/SceneInvite.js"></script>
 	<!--game_files_end-->
 </head>
 
@@ -62,6 +63,7 @@
 data-content-height="1036" data-show-paint-rect="false" data-multi-fingered="2" data-show-fps="false" data-show-log="false"
 data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
 </div>
+<audio id="bgmusic" src="resource/assets/bgm.mp3" autoplay preload loop controls></audio>
 <script>
         /**
          * {
@@ -71,7 +73,18 @@ data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
          * }
          **/
         egret.runEgret({ renderMode: "canvas", audioType: 0 });
-
+        wx.config({
+            // 配置信息, 即使不正确也能使用 wx.ready
+            debug: false,
+            appId: '',
+            timestamp: 1,
+            nonceStr: '',
+            signature: '',
+            jsApiList: []
+        });
+        wx.ready(function() {
+            document.getElementById('bgmusic').play();
+        });
 
         // var linktitle = '都市频道，节奏连环击';
         // var linkdesc = '都市频道，节奏连环击';

@@ -10,6 +10,7 @@ class LoadingUI extends egret.Sprite {
     private createView(e):void {
         this.textField = new egret.TextField();
         this.addChild(this.textField);
+        this.textField.textColor = SceneIntroAnimation.THEME_COLOR_PINK;
         this.textField.y = 300;
         this.textField.width = this.stage.stageWidth;
         this.textField.height = 100;

@@ -4,18 +4,17 @@ class Main extends egret.DisplayObjectContainer {
      * 加载进度界面
      * Process interface loading
      */
-    private loadingView:LoadingUI;
+    private loadingView: LoadingUI;
 
     public constructor() {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
 
-    private onAddToStage(event:egret.Event) {
+    private onAddToStage(event: egret.Event) {
         //设置加载进度界面
         //Config to load process interface
-        this.loadingView = new LoadingUI();
-        this.stage.addChild(this.loadingView);
+
 
         //初始化Resource资源加载库
         //initiate Resource loading library
@@ -27,20 +26,21 @@ class Main extends egret.DisplayObjectContainer {
      * 配置文件加载完成,开始预加载preload资源组。
      * configuration file loading is completed, start to pre-load the preload resource group
      */
-    private onConfigComplete(event:RES.ResourceEvent):void {
+    private onConfigComplete(event: RES.ResourceEvent): void {
         RES.removeEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
         RES.addEventListener(RES.ResourceEvent.ITEM_LOAD_ERROR, this.onItemLoadError, this);
-        RES.loadGroup("preload");
+        RES.loadGroup("loader");
+
     }
 
     /**
      * preload资源组加载完成
      * Preload resource group is loaded
      */
-    private onResourceLoadComplete(event:RES.ResourceEvent):void {
+    private onResourceLoadComplete(event: RES.ResourceEvent): void {
         if (event.groupName == "preload") {
             this.stage.removeChild(this.loadingView);
             RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
@@ -48,14 +48,31 @@ class Main extends egret.DisplayObjectContainer {
             RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
             RES.removeEventListener(RES.ResourceEvent.ITEM_LOAD_ERROR, this.onItemLoadError, this);
             this.createGameScene();
+        } else {
+            let bg = new egret.Shape();
+            bg.graphics.beginFill(0x15193d, 1);
+            bg.graphics.drawRect(0, 0, this.stage.stageWidth, this.stage.stageHeight);
+            bg.graphics.endFill();
+            this.addChild(bg);
+
+            this.bgPattern = new CurtainBitmap({
+                resourceName: "main_bg_png",
+                fadeIn: false,
+                centerLayout: true
+            });
+             this.addChild(this.bgPattern);
+            this.loadingView = new LoadingUI();
+            this.stage.addChild(this.loadingView);
+            RES.loadGroup("preload");
         }
+
     }
 
     /**
      * 资源组加载出错
      *  The resource group loading failed
      */
-    private onItemLoadError(event:RES.ResourceEvent):void {
+    private onItemLoadError(event: RES.ResourceEvent): void {
         console.warn("Url:" + event.resItem.url + " has failed to load");
     }
 
@@ -63,7 +80,7 @@ class Main extends egret.DisplayObjectContainer {
      * 资源组加载出错
      *  The resource group loading failed
      */
-    private onResourceLoadError(event:RES.ResourceEvent):void {
+    private onResourceLoadError(event: RES.ResourceEvent): void {
         //TODO
         console.warn("Group:" + event.groupName + " has failed to load");
         //忽略加载失败的项目
@@ -75,7 +92,7 @@ class Main extends egret.DisplayObjectContainer {
      * preload资源组加载进度
      * Loading process of preload resource group
      */
-    private onResourceProgress(event:RES.ResourceEvent):void {
+    private onResourceProgress(event: RES.ResourceEvent): void {
         if (event.groupName == "preload") {
             this.loadingView.setProgress(event.itemsLoaded, event.itemsTotal);
         }
@@ -85,42 +102,27 @@ class Main extends egret.DisplayObjectContainer {
      * 创建游戏场景
      * Create a game scene
      */
-    private 
-    private introAminationScene:SceneIntroAnimation;
-    private perksScene:ScenePerks;
-    private invationScene:SceneInvite;
+    private
+    private introAminationScene: SceneIntroAnimation;
+    private perksScene: ScenePerks;
+    private invationScene: SceneInvite;
     private bgPattern: CurtainBitmap;
-    private createGameScene():void {
-        let bg = new egret.Shape();
-        bg.graphics.beginFill(0x15193d,1);
-        bg.graphics.drawRect(0,0,this.stage.stageWidth,this.stage.stageHeight);
-        bg.graphics.endFill();
-        this.addChild(bg);
+    private createGameScene(): void {
 
-        this.bgPattern = new CurtainBitmap({
-            resourceName: "main_bg_png",
-            fadeIn: false,
-            centerLayout: true
-        });
-        this.bgPattern.visible = false;
-        let weakSelf = this;
-        setTimeout(function() {
-            weakSelf.bgPattern.visible = true;
-        }, 500);
-        this.addChild(this.bgPattern);
+       
 
         this.introAminationScene = new SceneIntroAnimation();
-        this.introAminationScene.addEventListener(LogoBall.DONE,this.onLogoBallDone,this);
+        this.introAminationScene.addEventListener(LogoBall.DONE, this.onLogoBallDone, this);
         this.addChild(this.introAminationScene);
 
         // this.onInvatationDone(null);
     }
-    private onLogoBallDone(e):void{
+    private onLogoBallDone(e): void {
         this.invationScene = new SceneInvite();
-        this.invationScene.addEventListener(SceneInvite.DONE,this.onInvatationDone,this);
+        this.invationScene.addEventListener(SceneInvite.DONE, this.onInvatationDone, this);
         this.addChild(this.invationScene);
     }
-    private onInvatationDone(e):void{
+    private onInvatationDone(e): void {
         this.perksScene = new ScenePerks();
         this.addChild(this.perksScene);
     }

@@ -14,16 +14,17 @@ var game_file_list = [
 	"bin-debug/UserIcon.js",
 	"bin-debug/LogoBall.js",
 	"bin-debug/PlanetButton.js",
+	"bin-debug/SceneIntroAnimation.js",
 	"bin-debug/CircleShape.js",
-	"bin-debug/SceneInvite.js",
 	"bin-debug/ScenePerks.js",
+	"bin-debug/SoundPlayer.js",
 	"bin-debug/Main.js",
 	"bin-debug/p2DebugDraw.js",
 	"bin-debug/LoadingUI.js",
 	"bin-debug/ImageBubbleBody.js",
 	"bin-debug/IJCTransform.js",
 	"bin-debug/CurtainBitmap.js",
-	"bin-debug/SceneIntroAnimation.js",
+	"bin-debug/SceneInvite.js",
 	//----auto game_file_list end----
 ];
 

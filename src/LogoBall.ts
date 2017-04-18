@@ -76,6 +76,7 @@ class LogoBall extends egret.Sprite implements IJCTransform {
     }
     private waveCount:number;
     private wave():void{
+        SoundPlayer.getPlayer().playSound("sf1_mp3");
         this.waveCount++;
         let weakSelf = this;
         weakSelf.flipTo("slogan_"+weakSelf.waveCount+"_png");
