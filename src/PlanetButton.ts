@@ -8,7 +8,7 @@ class PlanetButton extends egret.Bitmap {
         this.index = parameters["index"];
         this.anchorOffsetX = this.width/2;
         this.anchorOffsetY = this.height/2;
-        this.scaleX = this.scaleY = 0.8;
+        this.scaleX = this.scaleY = 0.6;
         this.touchEnabled = true;
 
 

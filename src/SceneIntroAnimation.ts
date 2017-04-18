@@ -4,8 +4,9 @@
 class SceneIntroAnimation extends egret.Sprite {
     public static RADIUS_LARGE: number = 200;
     public static RADIUS_SMALL: number = 64;
-    public static BALL_SPEED: number = 600;
+    public static BALL_SPEED: number = 1000;
     public static THEME_COLOR_PINK: number = 0xff0091;
+    public static USER_COUNT:number = 90;
 
     constructor() {
         super();
@@ -99,12 +100,16 @@ class SceneIntroAnimation extends egret.Sprite {
     private onLogoReady(e): void {
         this.removeChild(this.curtain);
         let weakSelf = this;
-        this.startP2();
+        setTimeout(function() {
+            weakSelf.startP2();    
+        }, 1000);
+
+        
         let addUserTimer = setInterval(() => {
-            if(weakSelf.addUserIcon() > 37){
+            if(weakSelf.addUserIcon() > SceneIntroAnimation.USER_COUNT){
                 clearInterval(addUserTimer);
             }
-        }, 200);
+        }, 100);
     }
     private onLogoDone(e):void{
         let weakSelf = this;

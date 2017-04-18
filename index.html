@@ -1,14 +1,15 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>悦球的引力</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="full-screen" content="true"/>
-    <meta name="screen-orientation" content="portrait"/>
-    <meta name="x5-fullscreen" content="true"/>
-    <meta name="360-fullscreen" content="true"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
     <style>
         html, body {
             -ms-touch-action: none;
@@ -20,8 +21,8 @@
         }
     </style>
 
-    <!--这个标签为通过egret提供的第三方库的方式生成的 javascript 文件。删除 modules_files 标签后，库文件加载列表将不会变化，请谨慎操作！-->
-    <!--modules_files_start-->
+<!--这个标签为通过egret提供的第三方库的方式生成的 javascript 文件。删除 modules_files 标签后，库文件加载列表将不会变化，请谨慎操作！-->
+<!--modules_files_start-->
 	<script egret="lib" src="libs/modules/egret/egret.js" src-release="libs/modules/egret/egret.min.js"></script>
 	<script egret="lib" src="libs/modules/egret/egret.web.js" src-release="libs/modules/egret/egret.web.min.js"></script>
 	<script egret="lib" src="libs/modules/game/game.js" src-release="libs/modules/game/game.min.js"></script>
@@ -31,16 +32,18 @@
 	<script egret="lib" src="libs/modules/p2/p2.js" src-release="libs/modules/p2/p2.min.js"></script>
 	<!--modules_files_end-->
 
-    <!--这个标签为不通过egret提供的第三方库的方式使用的 javascript 文件，请将这些文件放在libs下，但不要放在modules下面。-->
-    <!--other_libs_files_start-->
-    <!--other_libs_files_end-->
+<!--这个标签为不通过egret提供的第三方库的方式使用的 javascript 文件，请将这些文件放在libs下，但不要放在modules下面。-->
+<!--other_libs_files_start-->
+<script egret="lib" src="libs/jquery.js"></script>
+<script egret="lib" src="libs/jweixin-1.0.0.js"></script>
+<!--other_libs_files_end-->
 
-    <!--这个标签会被替换为项目中所有的 javascript 文件。删除 game_files 标签后，项目文件加载列表将不会变化，请谨慎操作！-->
-    <!--game_files_start-->
+<!--这个标签会被替换为项目中所有的 javascript 文件。删除 game_files 标签后，项目文件加载列表将不会变化，请谨慎操作！-->
+<!--game_files_start-->
 	<script egret="game" src="bin-debug/UserIcon.js"></script>
 	<script egret="game" src="bin-debug/LogoBall.js"></script>
 	<script egret="game" src="bin-debug/PlanetButton.js"></script>
-	<script egret="game" src="bin-debug/SceneIntroAnimation.js"></script>
+	<script egret="game" src="bin-debug/CircleShape.js"></script>
 	<script egret="game" src="bin-debug/SceneInvite.js"></script>
 	<script egret="game" src="bin-debug/ScenePerks.js"></script>
 	<script egret="game" src="bin-debug/Main.js"></script>
@@ -49,24 +52,17 @@
 	<script egret="game" src="bin-debug/ImageBubbleBody.js"></script>
 	<script egret="game" src="bin-debug/IJCTransform.js"></script>
 	<script egret="game" src="bin-debug/CurtainBitmap.js"></script>
-	<script egret="game" src="bin-debug/CircleShape.js"></script>
+	<script egret="game" src="bin-debug/SceneIntroAnimation.js"></script>
 	<!--game_files_end-->
 </head>
+
 <body>
 
-    <div style="margin: auto;width: 100%;height: 100%;" class="egret-player"
-         data-entry-class="Main"
-         data-orientation="auto"
-         data-scale-mode="showAll"
-         data-frame-rate="60"
-         data-content-width="640"
-         data-content-height="1036"
-         data-show-paint-rect="false"
-         data-multi-fingered="2"
-         data-show-fps="false" data-show-log="false"
-         data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
-    </div>
-    <script>
+    <div style="margin: auto;width: 100%;height: 100%;" class="egret-player" data-entry-class="Main" data-orientation="auto" data-scale-mode="showAll" data-frame-rate="60" data-content-width="640"
+data-content-height="1036" data-show-paint-rect="false" data-multi-fingered="2" data-show-fps="false" data-show-log="false"
+data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
+</div>
+<script>
         /**
          * {
          * "renderMode":, //引擎渲染模式，"canvas" 或者 "webgl"
@@ -74,7 +70,84 @@
          * "antialias": //WebGL模式下是否开启抗锯齿，true:开启，false:关闭，默认为false
          * }
          **/
-        egret.runEgret({renderMode:"canvas", audioType:0});
+        egret.runEgret({ renderMode: "canvas", audioType: 0 });
+
+
+        // var linktitle = '都市频道，节奏连环击';
+        // var linkdesc = '都市频道，节奏连环击';
+        // var linkurl = 'http://info.lndspd.com/custom/bxcw2017/beatmax/index.html';
+        // var linkimg = 'http://info.lndspd.com/custom/bxcw2017/beatmax/thumb.jpg';
+
+
+        // var url = location.href.split('#')[0];
+        // $.ajax({
+        //     url: 'http://wx.lnds.rockcms.com/activity/common/wxjstoken.jsp',
+        //     dataType: 'jsonp',
+        //     data: {
+        //         url: url,
+        //         rand: new Date().getTime()
+        //     },
+        //     jsonp: 'jsonpcallback',
+        //     cache: false,
+        //     beforeSend: function () {
+        //     },
+        //     success: function (data) {
+        //         if (data && data.origin_status == "0") {
+        //             var signature = data.signature;
+        //             var nonceStr = data.nonceStr;
+        //             var timestamp = data.timestamp;
+        //             var appId = data.appId;
+        //             wx.config({
+        //                 debug: false,
+        //                 appId: appId,
+        //                 timestamp: timestamp,
+        //                 nonceStr: nonceStr,
+        //                 signature: signature,
+        //                 jsApiList: ['checkJsApi',
+        //                     'hideMenuItems',
+        //                     'onMenuShareTimeline',
+        //                     'onMenuShareAppMessage']
+        //             });
+        //         }
+        //     }
+        // });
+
+        // wx.ready(function () {
+        //     wx.hideMenuItems({
+        //         menuList: [
+        //             'menuItem:share:timeline',
+        //             'menuItem:share:qq',
+        //             'menuItem:share:weiboApp',
+        //             'menuItem:favorite',
+        //             'menuItem:share:facebook',
+        //             'menuItem:share:QZone',
+        //             'menuItem:copyUrl',
+        //             'menuItem:exposeArticle',
+        //             'menuItem:openWithQQBrowser',
+        //             'menuItem:openWithSafari'
+        //         ],
+        //         success: function (res) {
+        //         },
+        //         fail: function (res) {
+        //         }
+        //     });
+        //     wx.onMenuShareAppMessage({
+        //         title: linktitle,
+        //         desc: linkdesc,
+        //         link: linkurl,
+        //         imgUrl: linkimg,
+        //         success: function () {
+        //         },
+        //         cancel: function () {
+        //         }
+        //     });
+
+        // });
+
+
+
+
     </script>
 </body>
+
 </html>

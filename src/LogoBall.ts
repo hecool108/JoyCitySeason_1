@@ -14,10 +14,7 @@ class LogoBall extends egret.Sprite implements IJCTransform {
 
     private currentLogo:egret.Bitmap;
     private targetLogo:egret.Bitmap;
-
-
     private shape:p2.Circle;
-
 
     constructor(shape:p2.Circle) {
         super();
@@ -62,19 +59,18 @@ class LogoBall extends egret.Sprite implements IJCTransform {
         this.mask = this.theMask;
 
         egret.Tween.get(this).to({ alpha: 1 }, 300, egret.Ease.quartInOut);
-        egret.Tween.get(this.joycityLogo).wait(300).call(() => {
+        egret.Tween.get(this.joycityLogo).wait(300)
+            .to({ y: 0 }, 300, egret.Ease.backInOut).wait(2000).call(() => {
                 weakSelf.dispatchEventWith(LogoBall.READY);
-            })
-            .to({ y: 0 }, 300, egret.Ease.backInOut)
-            .wait(1000).
+            }).
             to({ y: -SceneIntroAnimation.RADIUS_LARGE * 2 },
             300, egret.Ease.backInOut);
 
         let weakSelf = this;
-        egret.Tween.get(this.eventLogo).wait(1600)
+        egret.Tween.get(this.eventLogo).wait(2600)
             .to({ y: 0 }, 300, egret.Ease.backInOut).call(()=>{
-            weakSelf.scaleTo(0.75,8000);
-        }).wait(8000).call(()=>{
+            weakSelf.scaleTo(0.75,10000);
+        }).wait(10000).call(()=>{
             weakSelf.wave();
         }); 
     }
@@ -82,25 +78,25 @@ class LogoBall extends egret.Sprite implements IJCTransform {
     private wave():void{
         this.waveCount++;
         let weakSelf = this;
+        weakSelf.flipTo("slogan_"+weakSelf.waveCount+"_png");
         egret.Tween.get(this).call(()=>{
-            weakSelf.scaleToEase(1,800,egret.Ease.quadInOut);
-            weakSelf.flipTo("slogan_"+weakSelf.waveCount+"_png");
-        }).wait(800).call(()=>{
-            weakSelf.scaleToEase(0.75,1200,egret.Ease.quadInOut);
+            weakSelf.scaleToEase(1,300,egret.Ease.backInOut);
+            
+        }).wait(1200).call(()=>{
+            weakSelf.scaleToEase(0.75,600,egret.Ease.quadInOut);
         })
 
         if(this.waveCount < 3){
             setTimeout(function() {
                 weakSelf.wave();
-            }, 3200);
+            }, 3600);
         }else{
             setTimeout(function() {
-                egret.Tween.get(weakSelf).to({scaleX:3,scaleY:3,alpha:0},800,egret.Ease.quadInOut);
+                egret.Tween.get(weakSelf).to({scaleX:3,scaleY:3,alpha:0},1200,egret.Ease.backInOut);
                 egret.Tween.get(weakSelf.shape).to({radius:SceneIntroAnimation.RADIUS_LARGE * 3},
-                800,egret.Ease.quadInOut);    
+                1200,egret.Ease.backInOut);    
                 weakSelf.dispatchEventWith(LogoBall.DONE);
-            }, 3200);
-            
+            }, 3600);
         }
     }
     private flipTo(res:string):void{
@@ -125,8 +121,8 @@ class LogoBall extends egret.Sprite implements IJCTransform {
         this.targetLogo.anchorOffsetX = this.targetLogo.width / 2;
         this.targetLogo.anchorOffsetY = this.targetLogo.height / 2;
 
-        egret.Tween.get(this.targetLogo).to({y:0},800,egret.Ease.quartInOut);
-        egret.Tween.get(this.currentLogo).to({y:-SceneIntroAnimation.RADIUS_LARGE * 2},800,egret.Ease.quartInOut);
+        egret.Tween.get(this.targetLogo).to({y:0},300,egret.Ease.backInOut);
+        egret.Tween.get(this.currentLogo).to({y:-SceneIntroAnimation.RADIUS_LARGE * 2},300,egret.Ease.backInOut);
 
     }
     public scaleTo(v:number,duration:number){

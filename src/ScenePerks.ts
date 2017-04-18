@@ -17,13 +17,13 @@ class ScenePerks extends egret.Sprite{
     private onAddToStage(e):void
     {
         
-        this.cornerLogo = new egret.Bitmap(RES.getRes("event_logo_png"));
+        this.cornerLogo = new egret.Bitmap(RES.getRes("event_logo_corner_png"));
         this.cornerLogo.anchorOffsetX = this.cornerLogo.width/2;
         this.cornerLogo.anchorOffsetY = this.cornerLogo.height/2;
         this.cornerLogo.scaleX = this.cornerLogo.scaleY = 0.2;
         this.cornerLogo.alpha = 0;
-        this.cornerLogo.x = 100;
-        this.cornerLogo.y = 120;
+        this.cornerLogo.x = 120;
+        this.cornerLogo.y = 150;
         this.addChild(this.cornerLogo);
 
         this.touchCover = new egret.Shape();
@@ -40,8 +40,8 @@ class ScenePerks extends egret.Sprite{
         this.ring.y = this.stage.stageHeight / 1.7;
         this.ring.rotation = -180;
         this.addChild(this.ring);
-        let startDegree:number = 235;
-        for(var i = 0;i < 3; i++){
+        let startDegree:number = 250;
+        for(var i = 0;i < 5; i++){
             let planet:PlanetButton = new PlanetButton(
                 {
                     raduis:raduis,
@@ -49,14 +49,14 @@ class ScenePerks extends egret.Sprite{
                     degree:startDegree,
                     index:i
                 });
-            startDegree -= 45;
+            startDegree -= 36;
             planet.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onPlanetTap,this);
             this.ring.addChild(planet);
             this.planets.push(planet);
         }
         egret.Tween.get(this.ring).to({rotation:0,x:this.stage.stageWidth},
                     1000,egret.Ease.backInOut);
-        egret.Tween.get(this.cornerLogo).to({scaleX:0.5,scaleY:0.5,alpha:1},300,egret.Ease.backOut);
+        egret.Tween.get(this.cornerLogo).to({scaleX:1,scaleY:1,alpha:1},300,egret.Ease.backOut);
 
         this.touchEnabled = true;
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onRingTouchBegin,this);
@@ -142,7 +142,7 @@ class ScenePerks extends egret.Sprite{
         if(!this.showingPerk) return;
         this.showingPerk = false;
         this.ring.visible = true;
-        egret.Tween.get(this.cornerLogo).to({alpha:1,scaleX:0.5,scaleY:0.5},500,egret.Ease.quartInOut);
+        egret.Tween.get(this.cornerLogo).to({alpha:1,scaleX:1,scaleY:1},500,egret.Ease.quartInOut);
         egret.Tween.get(this.perkBox).to({alpha:0,scaleX:0.5,scaleY:0.5},500,egret.Ease.quartInOut);
         egret.Tween.get(this.ring).to({alpha:1,scaleX:1,scaleY:1,x:this.stage.stageWidth },500,egret.Ease.quartInOut);
     }

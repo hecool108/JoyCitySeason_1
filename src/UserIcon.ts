@@ -19,10 +19,8 @@ class UserIcon extends egret.Sprite implements IJCTransform {
             });
         this.addChild(this.bg);
         
-
-        
-
-        this.userIcon = new egret.Bitmap(RES.getRes("user_icon_"+parameters["id"]+"_png"));
+        let iconID = parameters["id"];
+        this.userIcon = new egret.Bitmap(RES.getRes("user_icon_"+iconID+"_png"));
         this.userIcon.touchEnabled = false;
         this.userIcon.cacheAsBitmap = true;
         this.userIcon.height = this.userIcon.width = 
@@ -37,8 +35,8 @@ class UserIcon extends egret.Sprite implements IJCTransform {
         // this.userIcon.mask = this.theMask;
         let weakSelf = this;
         setTimeout(function() {
-            weakSelf.scaleTo(0.5,800);
-        }, 2000);
+            weakSelf.scaleTo(0.7,800);
+        }, 1200);
 
         
 

@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "intro_bg_jpg,main_bg_png,slogan_3_png,slogan_2_png,slogan_1_png,planet_3_png,planet_2_png,planet_1_png,joy_city_logo_png,event_logo_png,user_icon_0_png,user_icon_1_png,user_icon_2_png,user_icon_3_png,user_icon_4_png,user_icon_5_png,user_icon_6_png,user_icon_7_png,user_icon_8_png,user_icon_12_png,user_icon_9_png,user_icon_10_png,user_icon_11_png,user_icon_14_png,user_icon_13_png,user_icon_15_png,user_icon_16_png,user_icon_18_png,user_icon_19_png,user_icon_20_png,user_icon_21_png,user_icon_17_png,user_icon_22_png,user_icon_23_png,user_icon_24_png,user_icon_25_png,user_icon_26_png,user_icon_27_png,user_icon_28_png,user_icon_29_png,user_icon_30_png,user_icon_31_png,user_icon_32_png,user_icon_33_png,user_icon_34_png,user_icon_35_png,user_icon_36_png,user_icon_37_png,invitation_jpg,perk_3_jpg,perk_2_jpg,perk_1_jpg,return_button_png,continue_button_png,return_button2_png,continue_button2_png",
+			"keys": "intro_bg_jpg,main_bg_png,slogan_3_png,slogan_2_png,slogan_1_png,planet_3_png,planet_2_png,planet_1_png,joy_city_logo_png,event_logo_png,invitation_jpg,perk_3_jpg,perk_2_jpg,perk_1_jpg,return_button_png,continue_button_png,return_button2_png,continue_button2_png,user_icon_90_png,user_icon_9_png,user_icon_89_png,user_icon_88_png,user_icon_87_png,user_icon_86_png,user_icon_85_png,user_icon_84_png,user_icon_83_png,user_icon_82_png,user_icon_81_png,user_icon_80_png,user_icon_8_png,user_icon_79_png,user_icon_78_png,user_icon_77_png,user_icon_76_png,user_icon_75_png,user_icon_74_png,user_icon_73_png,user_icon_72_png,user_icon_71_png,user_icon_70_png,user_icon_7_png,user_icon_69_png,user_icon_68_png,user_icon_67_png,user_icon_66_png,user_icon_65_png,user_icon_64_png,user_icon_63_png,user_icon_62_png,user_icon_61_png,user_icon_60_png,user_icon_6_png,user_icon_59_png,user_icon_58_png,user_icon_57_png,user_icon_56_png,user_icon_55_png,user_icon_54_png,user_icon_53_png,user_icon_52_png,user_icon_51_png,user_icon_50_png,user_icon_5_png,user_icon_49_png,user_icon_48_png,user_icon_47_png,user_icon_46_png,user_icon_45_png,user_icon_44_png,user_icon_43_png,user_icon_42_png,user_icon_41_png,user_icon_40_png,user_icon_4_png,user_icon_39_png,user_icon_38_png,user_icon_37_png,user_icon_36_png,user_icon_35_png,user_icon_34_png,user_icon_33_png,user_icon_32_png,user_icon_31_png,user_icon_30_png,user_icon_3_png,user_icon_29_png,user_icon_28_png,user_icon_27_png,user_icon_26_png,user_icon_25_png,user_icon_24_png,user_icon_23_png,user_icon_22_png,user_icon_21_png,user_icon_20_png,user_icon_2_png,user_icon_19_png,user_icon_18_png,user_icon_17_png,user_icon_16_png,user_icon_15_png,user_icon_14_png,user_icon_13_png,user_icon_12_png,user_icon_11_png,user_icon_10_png,user_icon_1_png,user_icon_0_png,perk_4_jpg,planet_4_png,perk_5_jpg,event_logo_corner_png,planet_5_png",
 			"name": "preload"
 		}
 	],
@@ -277,14 +277,304 @@
 			"name": "continue_button_png"
 		},
 		{
-			"name": "return_button2_png",
+			"url": "assets/return_button.png",
 			"type": "image",
-			"url": "assets/return_button.png"
+			"name": "return_button2_png"
 		},
 		{
-			"name": "continue_button2_png",
+			"url": "assets/continue_button.png",
 			"type": "image",
-			"url": "assets/continue_button.png"
+			"name": "continue_button2_png"
+		},
+		{
+			"url": "assets/user_icon_40.png",
+			"type": "image",
+			"name": "user_icon_40_png"
+		},
+		{
+			"url": "assets/user_icon_38.png",
+			"type": "image",
+			"name": "user_icon_38_png"
+		},
+		{
+			"url": "assets/user_icon_39.png",
+			"type": "image",
+			"name": "user_icon_39_png"
+		},
+		{
+			"url": "assets/user_icon_41.png",
+			"type": "image",
+			"name": "user_icon_41_png"
+		},
+		{
+			"url": "assets/user_icon_42.png",
+			"type": "image",
+			"name": "user_icon_42_png"
+		},
+		{
+			"url": "assets/user_icon_43.png",
+			"type": "image",
+			"name": "user_icon_43_png"
+		},
+		{
+			"url": "assets/user_icon_44.png",
+			"type": "image",
+			"name": "user_icon_44_png"
+		},
+		{
+			"url": "assets/user_icon_45.png",
+			"type": "image",
+			"name": "user_icon_45_png"
+		},
+		{
+			"url": "assets/user_icon_46.png",
+			"type": "image",
+			"name": "user_icon_46_png"
+		},
+		{
+			"url": "assets/user_icon_47.png",
+			"type": "image",
+			"name": "user_icon_47_png"
+		},
+		{
+			"url": "assets/user_icon_48.png",
+			"type": "image",
+			"name": "user_icon_48_png"
+		},
+		{
+			"url": "assets/user_icon_49.png",
+			"type": "image",
+			"name": "user_icon_49_png"
+		},
+		{
+			"url": "assets/user_icon_50.png",
+			"type": "image",
+			"name": "user_icon_50_png"
+		},
+		{
+			"url": "assets/user_icon_51.png",
+			"type": "image",
+			"name": "user_icon_51_png"
+		},
+		{
+			"url": "assets/user_icon_52.png",
+			"type": "image",
+			"name": "user_icon_52_png"
+		},
+		{
+			"url": "assets/user_icon_53.png",
+			"type": "image",
+			"name": "user_icon_53_png"
+		},
+		{
+			"url": "assets/user_icon_54.png",
+			"type": "image",
+			"name": "user_icon_54_png"
+		},
+		{
+			"url": "assets/user_icon_55.png",
+			"type": "image",
+			"name": "user_icon_55_png"
+		},
+		{
+			"url": "assets/user_icon_56.png",
+			"type": "image",
+			"name": "user_icon_56_png"
+		},
+		{
+			"url": "assets/user_icon_57.png",
+			"type": "image",
+			"name": "user_icon_57_png"
+		},
+		{
+			"url": "assets/user_icon_58.png",
+			"type": "image",
+			"name": "user_icon_58_png"
+		},
+		{
+			"url": "assets/user_icon_59.png",
+			"type": "image",
+			"name": "user_icon_59_png"
+		},
+		{
+			"url": "assets/user_icon_60.png",
+			"type": "image",
+			"name": "user_icon_60_png"
+		},
+		{
+			"url": "assets/user_icon_61.png",
+			"type": "image",
+			"name": "user_icon_61_png"
+		},
+		{
+			"url": "assets/user_icon_62.png",
+			"type": "image",
+			"name": "user_icon_62_png"
+		},
+		{
+			"url": "assets/user_icon_63.png",
+			"type": "image",
+			"name": "user_icon_63_png"
+		},
+		{
+			"url": "assets/user_icon_64.png",
+			"type": "image",
+			"name": "user_icon_64_png"
+		},
+		{
+			"url": "assets/user_icon_65.png",
+			"type": "image",
+			"name": "user_icon_65_png"
+		},
+		{
+			"url": "assets/user_icon_66.png",
+			"type": "image",
+			"name": "user_icon_66_png"
+		},
+		{
+			"url": "assets/user_icon_67.png",
+			"type": "image",
+			"name": "user_icon_67_png"
+		},
+		{
+			"url": "assets/user_icon_68.png",
+			"type": "image",
+			"name": "user_icon_68_png"
+		},
+		{
+			"url": "assets/user_icon_69.png",
+			"type": "image",
+			"name": "user_icon_69_png"
+		},
+		{
+			"url": "assets/user_icon_70.png",
+			"type": "image",
+			"name": "user_icon_70_png"
+		},
+		{
+			"url": "assets/user_icon_71.png",
+			"type": "image",
+			"name": "user_icon_71_png"
+		},
+		{
+			"url": "assets/user_icon_72.png",
+			"type": "image",
+			"name": "user_icon_72_png"
+		},
+		{
+			"url": "assets/user_icon_73.png",
+			"type": "image",
+			"name": "user_icon_73_png"
+		},
+		{
+			"url": "assets/user_icon_74.png",
+			"type": "image",
+			"name": "user_icon_74_png"
+		},
+		{
+			"url": "assets/user_icon_75.png",
+			"type": "image",
+			"name": "user_icon_75_png"
+		},
+		{
+			"url": "assets/user_icon_76.png",
+			"type": "image",
+			"name": "user_icon_76_png"
+		},
+		{
+			"url": "assets/user_icon_77.png",
+			"type": "image",
+			"name": "user_icon_77_png"
+		},
+		{
+			"url": "assets/user_icon_78.png",
+			"type": "image",
+			"name": "user_icon_78_png"
+		},
+		{
+			"url": "assets/user_icon_79.png",
+			"type": "image",
+			"name": "user_icon_79_png"
+		},
+		{
+			"url": "assets/user_icon_80.png",
+			"type": "image",
+			"name": "user_icon_80_png"
+		},
+		{
+			"url": "assets/user_icon_81.png",
+			"type": "image",
+			"name": "user_icon_81_png"
+		},
+		{
+			"url": "assets/user_icon_82.png",
+			"type": "image",
+			"name": "user_icon_82_png"
+		},
+		{
+			"url": "assets/user_icon_83.png",
+			"type": "image",
+			"name": "user_icon_83_png"
+		},
+		{
+			"url": "assets/user_icon_84.png",
+			"type": "image",
+			"name": "user_icon_84_png"
+		},
+		{
+			"url": "assets/user_icon_85.png",
+			"type": "image",
+			"name": "user_icon_85_png"
+		},
+		{
+			"url": "assets/user_icon_86.png",
+			"type": "image",
+			"name": "user_icon_86_png"
+		},
+		{
+			"url": "assets/user_icon_87.png",
+			"type": "image",
+			"name": "user_icon_87_png"
+		},
+		{
+			"url": "assets/user_icon_88.png",
+			"type": "image",
+			"name": "user_icon_88_png"
+		},
+		{
+			"url": "assets/user_icon_89.png",
+			"type": "image",
+			"name": "user_icon_89_png"
+		},
+		{
+			"url": "assets/user_icon_90.png",
+			"type": "image",
+			"name": "user_icon_90_png"
+		},
+		{
+			"name": "perk_4_jpg",
+			"type": "image",
+			"url": "assets/perk_4.jpg"
+		},
+		{
+			"name": "planet_4_png",
+			"type": "image",
+			"url": "assets/planet_4.png"
+		},
+		{
+			"name": "perk_5_jpg",
+			"type": "image",
+			"url": "assets/perk_5.jpg"
+		},
+		{
+			"name": "event_logo_corner_png",
+			"type": "image",
+			"url": "assets/event_logo_corner.png"
+		},
+		{
+			"name": "planet_5_png",
+			"type": "image",
+			"url": "assets/planet_5.png"
 		}
 	]
 }
