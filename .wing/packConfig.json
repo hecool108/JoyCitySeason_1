@@ -1,0 +1,10 @@
+{
+    "useClip": true,
+    "maxImageWidth": 1024,
+    "maxImageHeight": 1024,
+    "defaultResPath": "/Users/wanghe/Documents/EgretProjects/JoyCitySeason_1/resource/default.res.json",
+    "packGroups": {
+        "preload": true,
+        "loader": true
+    }
+}

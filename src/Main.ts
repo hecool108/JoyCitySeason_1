@@ -109,8 +109,6 @@ class Main extends egret.DisplayObjectContainer {
     private bgPattern: CurtainBitmap;
     private createGameScene(): void {
 
-       
-
         this.introAminationScene = new SceneIntroAnimation();
         this.introAminationScene.addEventListener(LogoBall.DONE, this.onLogoBallDone, this);
         this.addChild(this.introAminationScene);
