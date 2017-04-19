@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "intro_bg_jpg,slogan_3_png,slogan_2_png,slogan_1_png,planet_3_png,planet_2_png,planet_1_png,joy_city_logo_png,event_logo_png,invitation_jpg,perk_3_jpg,perk_2_jpg,perk_1_jpg,return_button_png,continue_button_png,return_button2_png,continue_button2_png,user_icon_90_png,user_icon_9_png,user_icon_89_png,user_icon_88_png,user_icon_87_png,user_icon_86_png,user_icon_85_png,user_icon_84_png,user_icon_83_png,user_icon_82_png,user_icon_81_png,user_icon_80_png,user_icon_8_png,user_icon_79_png,user_icon_78_png,user_icon_77_png,user_icon_76_png,user_icon_75_png,user_icon_74_png,user_icon_73_png,user_icon_72_png,user_icon_71_png,user_icon_70_png,user_icon_7_png,user_icon_69_png,user_icon_68_png,user_icon_67_png,user_icon_66_png,user_icon_65_png,user_icon_64_png,user_icon_63_png,user_icon_62_png,user_icon_61_png,user_icon_60_png,user_icon_6_png,user_icon_59_png,user_icon_58_png,user_icon_57_png,user_icon_56_png,user_icon_55_png,user_icon_54_png,user_icon_53_png,user_icon_52_png,user_icon_51_png,user_icon_50_png,user_icon_5_png,user_icon_49_png,user_icon_48_png,user_icon_47_png,user_icon_46_png,user_icon_45_png,user_icon_44_png,user_icon_43_png,user_icon_42_png,user_icon_41_png,user_icon_40_png,user_icon_4_png,user_icon_39_png,user_icon_38_png,user_icon_37_png,user_icon_36_png,user_icon_35_png,user_icon_34_png,user_icon_33_png,user_icon_32_png,user_icon_31_png,user_icon_30_png,user_icon_3_png,user_icon_29_png,user_icon_28_png,user_icon_27_png,user_icon_26_png,user_icon_25_png,user_icon_24_png,user_icon_23_png,user_icon_22_png,user_icon_21_png,user_icon_20_png,user_icon_2_png,user_icon_19_png,user_icon_18_png,user_icon_17_png,user_icon_16_png,user_icon_15_png,user_icon_14_png,user_icon_13_png,user_icon_12_png,user_icon_11_png,user_icon_10_png,user_icon_1_png,user_icon_0_png,perk_4_jpg,planet_4_png,perk_5_jpg,event_logo_corner_png,planet_5_png,main_bg_png,loading_bg2_jpg",
+			"keys": "intro_bg_jpg,slogan_3_png,slogan_2_png,slogan_1_png,planet_3_png,planet_1_png,joy_city_logo_png,event_logo_png,perk_3_jpg,perk_1_jpg,return_button_png,continue_button_png,continue_button2_png,user_icon_90_png,user_icon_9_png,user_icon_89_png,user_icon_88_png,user_icon_87_png,user_icon_86_png,user_icon_85_png,user_icon_84_png,user_icon_83_png,user_icon_82_png,user_icon_81_png,user_icon_80_png,user_icon_8_png,user_icon_79_png,user_icon_78_png,user_icon_77_png,user_icon_76_png,user_icon_75_png,user_icon_74_png,user_icon_73_png,user_icon_72_png,user_icon_71_png,user_icon_70_png,user_icon_7_png,user_icon_69_png,user_icon_68_png,user_icon_67_png,user_icon_66_png,user_icon_65_png,user_icon_64_png,user_icon_63_png,user_icon_62_png,user_icon_61_png,user_icon_60_png,user_icon_6_png,user_icon_59_png,user_icon_58_png,user_icon_57_png,user_icon_56_png,user_icon_55_png,user_icon_54_png,user_icon_53_png,user_icon_52_png,user_icon_51_png,user_icon_50_png,user_icon_5_png,user_icon_49_png,user_icon_48_png,user_icon_47_png,user_icon_46_png,user_icon_45_png,user_icon_44_png,user_icon_43_png,user_icon_42_png,user_icon_41_png,user_icon_40_png,user_icon_4_png,user_icon_39_png,user_icon_38_png,user_icon_37_png,user_icon_36_png,user_icon_35_png,user_icon_34_png,user_icon_33_png,user_icon_32_png,user_icon_31_png,user_icon_30_png,user_icon_3_png,user_icon_29_png,user_icon_28_png,user_icon_27_png,user_icon_26_png,user_icon_25_png,user_icon_24_png,user_icon_23_png,user_icon_22_png,user_icon_21_png,user_icon_20_png,user_icon_2_png,user_icon_19_png,user_icon_18_png,user_icon_17_png,user_icon_16_png,user_icon_15_png,user_icon_14_png,user_icon_13_png,user_icon_12_png,user_icon_11_png,user_icon_10_png,user_icon_1_png,user_icon_0_png,perk_4_jpg,event_logo_corner_png,planet_5_png,main_bg_png,loading_bg2_jpg,invitation_png,planet_2_png,planet_4_png,perk_5_jpg,perk_2_jpg",
 			"name": "preload"
 		},
 		{
@@ -39,11 +39,6 @@
 			"url": "assets/planet_3.png",
 			"type": "image",
 			"name": "planet_3_png"
-		},
-		{
-			"url": "assets/planet_2.png",
-			"type": "image",
-			"name": "planet_2_png"
 		},
 		{
 			"url": "assets/slogan_1.png",
@@ -251,19 +246,9 @@
 			"name": "user_icon_37_png"
 		},
 		{
-			"url": "assets/invitation.jpg",
-			"type": "image",
-			"name": "invitation_jpg"
-		},
-		{
 			"url": "assets/perk_3.jpg",
 			"type": "image",
 			"name": "perk_3_jpg"
-		},
-		{
-			"url": "assets/perk_2.jpg",
-			"type": "image",
-			"name": "perk_2_jpg"
 		},
 		{
 			"url": "assets/perk_1.jpg",
@@ -279,11 +264,6 @@
 			"url": "assets/continue_button.png",
 			"type": "image",
 			"name": "continue_button_png"
-		},
-		{
-			"url": "assets/return_button.png",
-			"type": "image",
-			"name": "return_button2_png"
 		},
 		{
 			"url": "assets/continue_button.png",
@@ -561,16 +541,6 @@
 			"name": "perk_4_jpg"
 		},
 		{
-			"url": "assets/planet_4.png",
-			"type": "image",
-			"name": "planet_4_png"
-		},
-		{
-			"url": "assets/perk_5.jpg",
-			"type": "image",
-			"name": "perk_5_jpg"
-		},
-		{
 			"url": "assets/event_logo_corner.png",
 			"type": "image",
 			"name": "event_logo_corner_png"
@@ -584,6 +554,31 @@
 			"url": "assets/loading_bg.jpg",
 			"type": "image",
 			"name": "loading_bg2_jpg"
+		},
+		{
+			"url": "assets/invitation.png",
+			"type": "image",
+			"name": "invitation_png"
+		},
+		{
+			"url": "assets/planet_2.png",
+			"type": "image",
+			"name": "planet_2_png"
+		},
+		{
+			"url": "assets/planet_4.png",
+			"type": "image",
+			"name": "planet_4_png"
+		},
+		{
+			"url": "assets/perk_2.jpg",
+			"type": "image",
+			"name": "perk_2_jpg"
+		},
+		{
+			"url": "assets/perk_5.jpg",
+			"type": "image",
+			"name": "perk_5_jpg"
 		}
 	]
 }

@@ -15,7 +15,7 @@ class SceneInvite extends egret.Sprite {
         this.invitationBox.x = this.invitationBox.anchorOffsetX = this.stage.stageWidth / 2;
         this.invitationBox.anchorOffsetY = this.stage.stageHeight / 2;
         this.invitationBox.y = this.invitationBox.anchorOffsetY;
-        this.invitationBitmap = new egret.Bitmap(RES.getRes("invitation_jpg"));
+        this.invitationBitmap = new egret.Bitmap(RES.getRes("invitation_png"));
         this.invitationBitmap.touchEnabled = true;
         this.invitationBox.addChild(this.invitationBitmap);
 
