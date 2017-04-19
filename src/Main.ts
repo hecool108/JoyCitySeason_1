@@ -115,6 +115,7 @@ class Main extends egret.DisplayObjectContainer {
         this.introAminationScene.addEventListener(LogoBall.DONE, this.onLogoBallDone, this);
         this.addChild(this.introAminationScene);
 
+        // this.onLogoBallDone(null);
         // this.onInvatationDone(null);
     }
     private onLogoBallDone(e): void {

@@ -14,22 +14,24 @@ class SceneInvite extends egret.Sprite {
         this.invitationBox.scaleX = this.invitationBox.scaleY = 0.5;
         this.invitationBox.x = this.invitationBox.anchorOffsetX = this.stage.stageWidth / 2;
         this.invitationBox.anchorOffsetY = this.stage.stageHeight / 2;
-        this.invitationBox.y = this.invitationBox.anchorOffsetY * 0.9;
+        this.invitationBox.y = this.invitationBox.anchorOffsetY;
         this.invitationBitmap = new egret.Bitmap(RES.getRes("invitation_jpg"));
+        this.invitationBitmap.touchEnabled = true;
         this.invitationBox.addChild(this.invitationBitmap);
 
-        this.invitationRetunBitmap = new egret.Bitmap(RES.getRes("continue_button_png"));
-        this.invitationBox.addChild(this.invitationRetunBitmap);
-        this.invitationRetunBitmap.touchEnabled = true;
-        this.invitationRetunBitmap.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onContinue, this);
+        // this.invitationRetunBitmap = new egret.Bitmap(RES.getRes("continue_button_png"));
+        // this.invitationBox.addChild(this.invitationRetunBitmap);
+        // this.invitationRetunBitmap.touchEnabled = true;
+        this.invitationBitmap.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onContinue, this);
 
         this.invitationBitmap.x = (this.stage.stageWidth - this.invitationBitmap.width)/2;
         this.invitationBitmap.y = (this.stage.stageHeight - this.invitationBitmap.height)/2;
-        this.invitationRetunBitmap.x = (this.stage.stageWidth - this.invitationRetunBitmap.width)/2;
-        this.invitationRetunBitmap.y = this.invitationBitmap.y + this.invitationBitmap.height + 20;
+        // this.invitationRetunBitmap.x = (this.stage.stageWidth - this.invitationRetunBitmap.width)/2;
+        // this.invitationRetunBitmap.y = this.invitationBitmap.y + this.invitationBitmap.height + 20;
 
 
-        egret.Tween.get(this.invitationBox).to({alpha:1,scaleX:1,scaleY:1},500,egret.Ease.quartInOut);
+        egret.Tween.get(this.invitationBox).to({alpha:1,scaleX:0.9,scaleY:0.9},
+                                    500,egret.Ease.quartInOut);
     }
     private onContinue(e):void{
         let weakSelf = this;

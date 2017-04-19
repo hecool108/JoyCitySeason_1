@@ -83,21 +83,21 @@ class LogoBall extends egret.Sprite implements IJCTransform {
         egret.Tween.get(this).call(()=>{
             weakSelf.scaleToEase(1 + this.waveCount * 0.1,300,egret.Ease.backInOut);
             
-        }).wait(1200).call(()=>{
+        }).wait(1000).call(()=>{
             weakSelf.scaleToEase(0.75,600,egret.Ease.quadInOut);
         })
 
         if(this.waveCount < 3){
             setTimeout(function() {
                 weakSelf.wave();
-            }, 3300);
+            }, 2700);
         }else{
             setTimeout(function() {
                 egret.Tween.get(weakSelf).to({scaleX:3,scaleY:3,alpha:0},1200,egret.Ease.backInOut);
                 egret.Tween.get(weakSelf.shape).to({radius:SceneIntroAnimation.RADIUS_LARGE * 3},
                 1200,egret.Ease.backInOut);    
                 weakSelf.dispatchEventWith(LogoBall.DONE);
-            }, 3300);
+            }, 2700);
         }
     }
     private flipTo(res:string):void{

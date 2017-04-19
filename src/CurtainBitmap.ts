@@ -9,7 +9,6 @@ class CurtainBitmap extends egret.Bitmap {
         if(this.parameters["fadeIn"]){
             this.alpha = 0;
         }
-        console.log(RES.getRes(parameters["resourceName"]));
         
 
         this.once(egret.Event.ADDED_TO_STAGE,this.onAddToStage,this);

@@ -15,7 +15,7 @@ var game_file_list = [
 	"bin-debug/LogoBall.js",
 	"bin-debug/PlanetButton.js",
 	"bin-debug/SceneIntroAnimation.js",
-	"bin-debug/CircleShape.js",
+	"bin-debug/SceneInvite.js",
 	"bin-debug/ScenePerks.js",
 	"bin-debug/SoundPlayer.js",
 	"bin-debug/Main.js",
@@ -24,7 +24,7 @@ var game_file_list = [
 	"bin-debug/ImageBubbleBody.js",
 	"bin-debug/IJCTransform.js",
 	"bin-debug/CurtainBitmap.js",
-	"bin-debug/SceneInvite.js",
+	"bin-debug/CircleShape.js",
 	//----auto game_file_list end----
 ];
 
@@ -61,7 +61,7 @@ egret_native.egretStart = function () {
 		frameRate: 60,
 		scaleMode: "showAll",
 		contentWidth: 640,
-		contentHeight: 1036,
+		contentHeight: 1038,
 		showPaintRect: false,
 		showFPS: false,
 		fpsStyles: "x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9",

@@ -30,7 +30,7 @@ class SceneIntroAnimation extends egret.Sprite {
                     weakSelf.createP2();
                     weakSelf.createDebugView();
                 });
-        }, 500);
+        }, 2000);
     }
     private onAddToStage(): void {
         this.createIntroMask();
