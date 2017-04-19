@@ -23,7 +23,11 @@
     },
     {
       "name":"p2",
-      "path":"/Users/wanghe/Documents/EgretProjects/JoyCitySeason_1/p2"
+      "path":"p2"
+    },
+    {
+      "name":"jsb",
+      "path":"jsb"
     }
 
   ]

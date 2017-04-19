@@ -5,9 +5,11 @@ class Main extends egret.DisplayObjectContainer {
      * Process interface loading
      */
     private loadingView: LoadingUI;
+    private isMute:boolean;
 
     public constructor() {
         super();
+        this.isMute = false;
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
 
@@ -64,6 +66,28 @@ class Main extends egret.DisplayObjectContainer {
             this.loadingView = new LoadingUI();
             this.stage.addChild(this.loadingView);
             RES.loadGroup("preload");
+            
+
+            let muteButton:egret.Bitmap = new egret.Bitmap(RES.getRes("icon_unmute_png"));
+            muteButton.anchorOffsetX = muteButton.width/2;
+            muteButton.anchorOffsetY = muteButton.height/2;
+            muteButton.x = this.stage.stageWidth - muteButton.width;
+            muteButton.y = muteButton.height;
+            muteButton.touchEnabled = true;
+            this.stage.addChild(muteButton);
+            let weakSelf = this;
+            muteButton.addEventListener(egret.TouchEvent.TOUCH_TAP,(e)=>{
+                if(weakSelf.isMute){
+                    jsb_unmute();
+                    muteButton.texture = RES.getRes("icon_unmute_png");
+                }else{
+                    jsb_mute();
+                    muteButton.texture = RES.getRes("icon_mute_png");
+                }
+                muteButton.anchorOffsetX = muteButton.width/2;
+                muteButton.anchorOffsetY = muteButton.height/2;
+                weakSelf.isMute = !weakSelf.isMute;
+            },this);
         }
 
     }

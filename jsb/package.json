@@ -1,0 +1,15 @@
+{
+	"name": "egret",
+	"version": "3.2.6",
+	"modules": [
+		{
+			"name": "jsb",
+			"description": "jsb",
+			"files": [
+				"jsb.js",
+				"jsb.d.ts"
+			],
+			"root": "src"
+		}
+	]
+}
