@@ -15,7 +15,7 @@ var game_file_list = [
 	"bin-debug/p2DebugDraw.js",
 	"bin-debug/Main.js",
 	"bin-debug/SceneIntroAnimation.js",
-	"bin-debug/CircleShape.js",
+	"bin-debug/SceneInvite.js",
 	"bin-debug/ScenePerks.js",
 	"bin-debug/SoundPlayer.js",
 	"bin-debug/UserIcon.js",
@@ -25,7 +25,7 @@ var game_file_list = [
 	"bin-debug/ImageBubbleBody.js",
 	"bin-debug/IJCTransform.js",
 	"bin-debug/CurtainBitmap.js",
-	"bin-debug/SceneInvite.js",
+	"bin-debug/CircleShape.js",
 	//----auto game_file_list end----
 ];
 

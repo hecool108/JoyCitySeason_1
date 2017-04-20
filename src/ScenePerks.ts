@@ -1,9 +1,7 @@
 class ScenePerks extends egret.Sprite {
     private ring: egret.Sprite;
     private cornerLogo: egret.Bitmap;
-    // private planet_1:PlanetButton;
-    // private planet_2:PlanetButton;
-    // private planet_3:PlanetButton;
+    public static PLANET_COUNT:number = 4;
 
     private planets: PlanetButton[];
 
@@ -40,8 +38,8 @@ class ScenePerks extends egret.Sprite {
         this.ring.y = this.stage.stageHeight / 1.7;
         this.addChild(this.ring);
         let startDegree: number = 0;
-        let degreesStep: number = 360 / 5;
-        for (var i = 0; i < 5; i++) {
+        let degreesStep: number = 360 / ScenePerks.PLANET_COUNT;
+        for (var i = 0; i < ScenePerks.PLANET_COUNT; i++) {
             let planet: PlanetButton = new PlanetButton(
                 {
                     raduis: raduis,
