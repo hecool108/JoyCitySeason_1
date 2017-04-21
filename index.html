@@ -23,14 +23,14 @@
 
 <!--这个标签为通过egret提供的第三方库的方式生成的 javascript 文件。删除 modules_files 标签后，库文件加载列表将不会变化，请谨慎操作！-->
 <!--modules_files_start-->
-	<script egret="lib" src="libs/modules/egret/egret.js" src-release="libs/modules/egret/egret.min.js"></script>
-	<script egret="lib" src="libs/modules/egret/egret.web.js" src-release="libs/modules/egret/egret.web.min.js"></script>
-	<script egret="lib" src="libs/modules/game/game.js" src-release="libs/modules/game/game.min.js"></script>
-	<script egret="lib" src="libs/modules/game/game.web.js" src-release="libs/modules/game/game.web.min.js"></script>
-	<script egret="lib" src="libs/modules/res/res.js" src-release="libs/modules/res/res.min.js"></script>
-	<script egret="lib" src="libs/modules/tween/tween.js" src-release="libs/modules/tween/tween.min.js"></script>
-	<script egret="lib" src="libs/modules/p2/p2.js" src-release="libs/modules/p2/p2.min.js"></script>
-	<script egret="lib" src="libs/modules/jsb/jsb.js" src-release="libs/modules/jsb/jsb.min.js"></script>
+	<script egret="lib" src="libs/modules/egret/egret.min.js"></script>
+	<script egret="lib" src="libs/modules/egret/egret.web.min.js"></script>
+	<script egret="lib" src="libs/modules/game/game.min.js"></script>
+	<script egret="lib" src="libs/modules/game/game.web.min.js"></script>
+	<script egret="lib" src="libs/modules/res/res.min.js"></script>
+	<script egret="lib" src="libs/modules/tween/tween.min.js"></script>
+	<script egret="lib" src="libs/modules/p2/p2.min.js"></script>
+	<script egret="lib" src="libs/modules/jsb/jsb.min.js"></script>
 	<!--modules_files_end-->
 
 <!--这个标签为不通过egret提供的第三方库的方式使用的 javascript 文件，请将这些文件放在libs下，但不要放在modules下面。-->
@@ -41,20 +41,7 @@
 
 <!--这个标签会被替换为项目中所有的 javascript 文件。删除 game_files 标签后，项目文件加载列表将不会变化，请谨慎操作！-->
 <!--game_files_start-->
-	<script egret="game" src="bin-debug/p2DebugDraw.js"></script>
-	<script egret="game" src="bin-debug/Main.js"></script>
-	<script egret="game" src="bin-debug/SceneIntroAnimation.js"></script>
-	<script egret="game" src="bin-debug/SceneInvite.js"></script>
-	<script egret="game" src="bin-debug/ScenePerks.js"></script>
-	<script egret="game" src="bin-debug/SoundPlayer.js"></script>
-	<script egret="game" src="bin-debug/UserIcon.js"></script>
-	<script egret="game" src="bin-debug/PlanetButton.js"></script>
-	<script egret="game" src="bin-debug/LogoBall.js"></script>
-	<script egret="game" src="bin-debug/LoadingUI.js"></script>
-	<script egret="game" src="bin-debug/ImageBubbleBody.js"></script>
-	<script egret="game" src="bin-debug/IJCTransform.js"></script>
-	<script egret="game" src="bin-debug/CurtainBitmap.js"></script>
-	<script egret="game" src="bin-debug/CircleShape.js"></script>
+	<script src="main.min.js"></script>
 	<!--game_files_end-->
 </head>
 
@@ -68,14 +55,49 @@ data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
 <audio id="bgmusic" src="resource/assets/bgm.mp3" autoplay preload loop controls></audio>
 <script>
     egret.runEgret({ renderMode: "canvas", audioType: 0 });
-    wx.config({
-        debug: false,
-        appId: '',
-        timestamp: 1,
-        nonceStr: '',
-        signature: '',
-        jsApiList: []
-    });
+
+	var linktitle = '悦动星球';
+	var linkdesc = '抢先开启大悦城4月22日的疯抢之旅';
+	var linkurl ='https://wx.lnds.rockcms.com/activity/joycity/index.html';
+	var linkimg ='https://lnds-wx.oss-cn-beijing.aliyuncs.com/activity/joycity/3ec5193a-56f3-483f-a24c-4e5227b47b73.jpg';
+	var url = location.href.split('#')[0];
+	$.ajax({
+	    url: 'https://wx.lnds.rockcms.com/activity/common/wxjstoken.jsp',
+	    dataType: 'jsonp',
+	    data: {url:url,
+	        rand:new Date().getTime()},
+	    jsonp:'jsonpcallback',
+	    cache: false,
+	    beforeSend:function(){
+	    },
+	    success:function(data){
+	        if(data && data.origin_status=="0"){
+	            var signature = data.signature;
+	            var nonceStr = data.nonceStr;
+	            var timestamp = data.timestamp;
+	            var appId = data.appId;
+	            wx.config({
+	                debug: false,
+	                appId: appId,
+	                timestamp:timestamp,
+	                nonceStr: nonceStr,
+	                signature: signature,
+	                jsApiList: ['checkJsApi',
+	                    'onMenuShareTimeline',
+	                    'onMenuShareAppMessage']
+	            });
+	        }
+	    }
+	});
+
+    // wx.config({
+    //     debug: false,
+    //     appId: '',
+    //     timestamp: 1,
+    //     nonceStr: '',
+    //     signature: '',
+    //     jsApiList: []
+    // });
 
     // var linktitle = '抢先开启大悦城4月22日的疯抢之旅';
     // var linkdesc = '抢先开启大悦城4月22日的疯抢之旅';
@@ -100,6 +122,27 @@ data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
             fail: function (res) {
             }
         });
+	    wx.onMenuShareAppMessage({
+	        title: linktitle,
+	        desc: linkdesc,
+	        link: linkurl,
+	        imgUrl:linkimg,
+	        success: function () {
+	        },
+	        cancel: function () {
+	        }
+	    });
+
+	    wx.onMenuShareTimeline({
+	        title: linkdesc,
+	        desc: linkdesc,
+	        link: linkurl,
+	        imgUrl:linkimg,
+	        success: function () {
+	        },
+	        cancel: function () {
+	        }
+	    });        
     });
 </script>
 </body>
