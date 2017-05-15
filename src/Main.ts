@@ -11,7 +11,9 @@ class Main extends egret.DisplayObjectContainer {
         super();
         this.isMute = false;
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
+        
     }
+    
 
     private onAddToStage(event: egret.Event) {
         //设置加载进度界面
